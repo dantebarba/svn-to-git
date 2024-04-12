@@ -89,3 +89,7 @@ nb-configuration.xml
 ##############################
 *.log
 *.jasper
+*.envrc
+*.env
+.envrc
+.env
