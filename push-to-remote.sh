@@ -11,7 +11,10 @@ ABSOLUTE_PATH="${ABSOLUTE_PATH:-$(pwd)}"
 # Git repository to migrate
 GIT_URL="${GIT_URL:-https://git.mycompany.com/git/repo/sistemas/$PROJECT_NAME.git}"
 
-cp .gitignore $ABSOLUTE_PATH/$PROJECT_NAME
+echo -e "${LIGHT_GREEN} [RUN] Copy .gitignore [RUN] cp .gitignore $TMP ${NC}"
+TMP=$ABSOLUTE_PATH/"migration-"$PROJECT_NAME
+cp .gitignore $TMP
+cd $TMP
 
 echo
 echo -e "${LIGHT_GREEN} [RUN] Step 07/08 ${NC}"
