@@ -3,8 +3,7 @@ set -e
 
 ####### Project name 
 PROJECT_NAME="${PROJECT_NAME:-myproject}"
-EMAIL="${EMAIL:-@mycompany.com"
-
+EMAIL="${EMAIL:-@mycompany.com}"
 # SVN
 # SVN repository to be migrated
 BASE_SVN="${BASE_SVN:-http://svn.mycompany.com/svn/repo/sistemas/$PROJECT_NAME}"
