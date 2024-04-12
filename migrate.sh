@@ -2,23 +2,17 @@
 set -e
 
 ####### Project name 
-PROJECT_NAME="myproject"
-EMAIL="@mycompany.com"
+PROJECT_NAME="${PROJECT_NAME:-myproject}"
+EMAIL="${EMAIL:-@mycompany.com"
 
-###########################
-####### SVN 
+# SVN
 # SVN repository to be migrated
-BASE_SVN="http://svn.mycompany.com/svn/repo/sistemas/myproject"
+BASE_SVN="${BASE_SVN:-http://svn.mycompany.com/svn/repo/sistemas/$PROJECT_NAME}"
 
 # Organization inside BASE_SVN
-BRANCHES="branches"
-TAGS="tags"
-TRUNK="trunk"
-
-###########################
-####### GIT 
-# Git repository to migrate
-GIT_URL="https://git.mycompany.com/git/repo/sistemas/myproject.git"
+BRANCHES="${BRANCHES:-branches}"
+TAGS="${TAGS:-tags}"
+TRUNK="${TRUNK:-trunk}"
 
 ###########################
 #### Don't need to change from here
@@ -31,7 +25,7 @@ NC='\033[0m' # No Color
 
 
 # Geral Configuration
-ABSOLUTE_PATH=$(pwd)
+ABSOLUTE_PATH="${ABSOLUTE_PATH:-$(pwd)}"
 TMP=$ABSOLUTE_PATH/"migration-"$PROJECT_NAME
 
 # Branchs Configuration
