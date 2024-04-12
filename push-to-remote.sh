@@ -1,8 +1,14 @@
 #!/bin/sh
+
+#STYLE_COLOR
+RED='\033[0;31m';
+LIGHT_GREEN='\e[1;32m';
+NC='\033[0m' # No Color
+
 ###########################
 ####### GIT 
 # Git repository to migrate
-GIT_URL="https://git.mycompany.com/git/repo/sistemas/myproject.git"
+GIT_URL="${GIT_URL:-https://git.mycompany.com/git/repo/sistemas/$PROJECT_NAME.git}"
 
 echo
 echo -e "${LIGHT_GREEN} [RUN] Step 07/08 ${NC}"
