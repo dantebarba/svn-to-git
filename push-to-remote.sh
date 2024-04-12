@@ -13,7 +13,7 @@ GIT_URL="${GIT_URL:-https://git.mycompany.com/git/repo/sistemas/$PROJECT_NAME.gi
 
 echo -e "${LIGHT_GREEN} [RUN] Copy .gitignore [RUN] cp .gitignore $TMP ${NC}"
 TMP=$ABSOLUTE_PATH/"migration-"$PROJECT_NAME
-cp .gitignore $TMP
+cp .gitignore.example $TMP/.gitignore
 cd $TMP
 
 echo
