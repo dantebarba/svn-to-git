@@ -1,8 +1,9 @@
 #!/bin/bash
+set -e
 
 ####### Project name 
 PROJECT_NAME="myproject"
-EMAIL="mycompany.com"
+EMAIL="@mycompany.com"
 
 ###########################
 ####### SVN 
@@ -57,10 +58,10 @@ svn log -q $BASE_SVN | awk -F '|' '/^r/ {sub("^ ", "", $2); sub(" $", "", $2); p
 
 echo
 echo -e "${LIGHT_GREEN} [RUN] Step 03/08"
-echo 'git svn clone --authors-file='$AUTHORS' --trunk='$TRUNK' --branches='$BRANCHES' --tags='$TAGS $BASE_SVN $TMP
+echo 'git svn clone --log-window-size=100000 --authors-file='$AUTHORS' --trunk='$TRUNK' --branches='$BRANCHES' --tags='$TAGS $BASE_SVN $TMP
 echo -e "${NC}"
 
-git svn clone --authors-file=$AUTHORS --trunk=$TRUNK --branches=$BRANCHES --tags=$TAGS $BASE_SVN $TMP
+git svn clone --log-window-size=100000 --authors-file=$AUTHORS --trunk=$TRUNK --branches=$BRANCHES --tags=$TAGS $BASE_SVN $TMP
 
 echo
 echo -e "${LIGHT_GREEN} [LOG] Step 04/08  Getting first revision ${NC}"
@@ -68,16 +69,11 @@ FIRST_REVISION=$( svn log -r 1:HEAD --limit 1 $BASE_SVN | awk -F '|' '/^r/ {sub(
 
 echo
 echo -e "${LIGHT_GREEN} [RUN] Step 05/08 ${NC}"
-echo 'git svn fetch -'$FIRST_REVISION':HEAD'
-git svn fetch -$FIRST_REVISION:HEAD
+echo 'git svn --log-window-size=100000 fetch -'$FIRST_REVISION':HEAD'
+git svn --log-window-size=100000 fetch -$FIRST_REVISION:HEAD
 
 echo
 echo -e "${LIGHT_GREEN} [RUN] Step 06/08 ${NC}"
-echo 'git remote add origin '$GIT_URL
-git remote add origin $GIT_URL
-
-echo
-echo -e "${LIGHT_GREEN} [RUN] Step 07/08 ${NC}"
 echo 'svn ls '$SVN_BRANCHES
 
 for BRANCH in $(svn ls $SVN_BRANCHES); do
@@ -97,10 +93,5 @@ while read ref
 do
   git branch -rd $ref
 done
-
-echo
-echo -e "${LIGHT_GREEN} [RUN] Step 08/08 [RUN] git push ${NC}"
-git push origin --all --force
-git push origin --tags
 
 echo 'Sucessufull.'
