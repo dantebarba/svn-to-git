@@ -71,8 +71,8 @@ echo -e "${LIGHT_GREEN} [RUN] Step 06/08 ${NC}"
 echo 'svn ls '$SVN_BRANCHES
 
 for BRANCH in $(svn ls $SVN_BRANCHES); do
-    echo git branch ${BRANCH%/} remotes/svn/${BRANCH%/}
-    git branch ${BRANCH%/} remotes/svn/${BRANCH%/}
+    echo git branch ${BRANCH%/} remotes/origin/${BRANCH%/}
+    git branch ${BRANCH%/} remotes/origin/${BRANCH%/}
 done
 
 git for-each-ref --format="%(refname:short) %(objectname)" refs/remotes/origin/tags | grep -v "@" | cut -d / -f 3- |
