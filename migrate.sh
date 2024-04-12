@@ -3,7 +3,7 @@ set -e
 
 ####### Project name 
 PROJECT_NAME="${PROJECT_NAME:-myproject}"
-EMAIL="${EMAIL:-@mycompany.com}"
+EMAIL="${EMAIL:-mycompany.com}"
 # SVN
 # SVN repository to be migrated
 BASE_SVN="${BASE_SVN:-http://svn.mycompany.com/svn/repo/sistemas/$PROJECT_NAME}"
@@ -47,7 +47,7 @@ cd $TMP
 
 echo
 echo -e "${LIGHT_GREEN} [LOG] Step 02/08 Getting authors ${NC}"
-svn log -q $BASE_SVN | awk -F '|' '/^r/ {sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" <"$2"@"$EMAIL">"}' | sort -u >> $AUTHORS
+svn log -q $BASE_SVN | awk -F '|' '/^r/ {sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" <"$2"@'"$EMAIL"'>"}' | sort -u >> $AUTHORS
 
 echo
 echo -e "${LIGHT_GREEN} [RUN] Step 03/08"
