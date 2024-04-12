@@ -33,7 +33,7 @@ SVN_BRANCHES=$BASE_SVN/$BRANCHES
 SVN_TAGS=$BASE_SVN/$TAGS
 SVN_TRUNK=$BASE_SVN/$TRUNK
 
-AUTHORS=$PROJECT_NAME"-authors.txt"
+AUTHORS=authors.txt
 
 echo -e "${LIGHT_GREEN} [LOG] Starting migration of ${NC}" $SVN_TRUNK
 echo -e "${LIGHT_GREEN} [LOG] Using: ${NC}" $(git --version)
