@@ -1,0 +1,9 @@
+export PROJECT_NAME=misistema
+export EMAIL=midominio.com.ar
+export BASE_SVN=http://midominio.com.ar/misistema
+export BRANCHES=branches/miSistema
+export TAGS=tags/miSistema
+export TRUNK=trunk/miSistema
+export ABSOLUTE_PATH=$HOME/svn2git-example
+export GIT_PAT="##REEMPLAZAR CON GIT PAT##"
+export GIT_URL=https://oauth2:$GIT_PAT@gitlab.midominio.com.ar/miempresa/desarrollo/misistema.git
